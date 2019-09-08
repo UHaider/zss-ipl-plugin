@@ -332,6 +332,7 @@ int josnArrayBPXPRM(jsonPrinter *printer, char *pliba, char *syspa)
     }
 
 	char *sysparm = malloc(sizeof(char) * (strlen(syspa) + 1));
+	if (sysparm == NULL)
     {
         jsonEndArray(printer);
         free(dataset);
