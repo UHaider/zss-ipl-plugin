@@ -3,20 +3,20 @@
 #define NUM_ALPHA 81
 
 
-int * __ptr32 getCVT(void) {
+int * __ptr32 getCVTs(void) {
 	int * __ptr32 mem = (int * __ptr32) 0;
 	int * __ptr32 theCVT = (int * __ptr32)(*(mem + (0x10 / 4)));
 	return theCVT;
 }
 
-int * __ptr32 getECVT(void) {
-	int * __ptr32 mem = getCVT();
+int * __ptr32 getECVTs(void) {
+	int * __ptr32 mem = getCVTs();
 	int * __ptr32 theECVT = (int * __ptr32)(*(mem + (0x8C / 4)));
 	return theECVT;
 }
 
-int * __ptr32 getECVTIPA(void) {
-	int * __ptr32 mem = getECVT();
+int * __ptr32 getECVTIPAs(void) {
+	int * __ptr32 mem = getECVTs();
 	int * __ptr32 theECVTIPA = (int * __ptr32)(*(mem + (0x188 / 4)));
 	return theECVTIPA;
 }
@@ -971,7 +971,7 @@ int printIPLData(jsonPrinter *printer)
 	memset(floadxx, '\0', sizeof(floadxx));
     
     // GET the ptrecvtipa
-	ptrecvtipa = getECVTIPA(); 
+	ptrecvtipa = getECVTIPAs(); 
 	memcpy(eye_catcher, ptrecvtipa, sizeof(eye_catcher) - 1);
 	memcpy(LOADxx, (ptrecvtipa + (0x14 / 4)), sizeof(LOADxx) - 1);
 	memcpy(ipldsn, (ptrecvtipa + (0x30 / 4)), sizeof(ipldsn) - 1);
