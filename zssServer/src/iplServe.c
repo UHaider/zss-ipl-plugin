@@ -80,14 +80,14 @@ int displaymem(jsonPrinter *printer, char *member, char*pliba)
 
             //Create a Json array for contents
 			jsonStartArray(printer, "Lines");
-			jsonStartObject(printer, NULL);
+			//jsonStartObject(printer, NULL);
 
 			while ((fgets(buffer, NUM_ALPHA, stream)) != NULL)
 			{
 				//For Json object
 				jsonAddString(printer, NULL, buffer);
 			}
-            jsonEndObject(printer);
+            //jsonEndObject(printer);
 			jsonEndArray(printer);
 			
 			jsonEndObject(printer);
@@ -912,7 +912,7 @@ static void josnArrayLOADxx(jsonPrinter *printer, char *ipldsn, char *floadxx, c
 
     //Create a Json array for contents
     jsonStartArray(printer, "Lines");
-    jsonStartObject(printer, NULL);
+    //jsonStartObject(printer, NULL);
 	//FILE processing
 	if ((stream = fopen(fname, "r")) != NULL)
 	{
@@ -922,7 +922,7 @@ static void josnArrayLOADxx(jsonPrinter *printer, char *ipldsn, char *floadxx, c
 		}
         fclose(stream);
 	}
-    jsonEndObject(printer);
+    //jsonEndObject(printer);
 	jsonEndArray(printer);
 
     jsonEndObject(printer);
